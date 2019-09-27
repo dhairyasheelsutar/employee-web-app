@@ -32,7 +32,7 @@ const SnackbarApp = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        onClose: () => dispatch({type: actionTypes.requestStatus, status: undefined})
+        onClose: () => dispatch({type: actionTypes.onInputChange, value: {requestFailed: undefined}})
     }
 };
 
