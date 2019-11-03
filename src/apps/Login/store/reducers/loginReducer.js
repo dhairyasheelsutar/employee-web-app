@@ -1,23 +1,16 @@
 import * as actionTypes from '../actions';
 
 const initialState = {
-    email: "",
-    firstName: "",
-    lastName: "",
-    mobile: "",
-    photo: "",
+    username: "",
+    password: "",
     requestFailed: undefined,
-    person: "",
-    formSubmitted: false,
-    selectError: false,
-    fileError: false
+    formSubmitted: false
 };
 
-const registerReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
 
     switch (action.type){
-
-        case actionTypes.onInputChange:
+        case actionTypes.INPUT_CHANGE:
             return{
                 ...state,
                 ...action.value
@@ -27,9 +20,9 @@ const registerReducer = (state = initialState, action) => {
             return{
                 ...state
             }
-
     }
 
 };
 
-export default registerReducer;
+export default loginReducer;
+

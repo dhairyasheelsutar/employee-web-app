@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
-import RegisterReducer from './store/reducers/RegisterReducer';
+import RegisterReducer from './apps/Users/Register/store/reducers/RegisterReducer';
+import loginReducer from './apps/Login/store/reducers/loginReducer';
 import { Provider } from 'react-redux';
 
 const rootReducer = combineReducers({
-    register: RegisterReducer
+    register: RegisterReducer,
+    login: loginReducer
 });
 
 const store = createStore(rootReducer);

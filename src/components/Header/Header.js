@@ -2,18 +2,26 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import './Header.css';
+import { makeStyles } from '@material-ui/core/styles';
 
-const header = (props) => {
+const styles = makeStyles(theme => ({
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1
+    }
+}));
+
+const header = () => {
+
+    const classes = styles();
+
     return(
         <div className="Header">
-            <AppBar position="static">
+            <AppBar className={classes.appBar} position="fixed">
                 <Toolbar >
                     <Typography variant="h6" className="Header">
                         Employee App
                     </Typography>
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </div>

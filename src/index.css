@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+a,
+a:active,
+a:hover{
+    text-underline: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.mt-1{
+    margin-top: 10px;
+}
+
+.text-center{
+    text-align: center;
+}
