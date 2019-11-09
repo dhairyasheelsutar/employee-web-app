@@ -1,2 +1,2 @@
-export const NODE_API = 'http://192.168.43.248:4000/';
-export const FLASK_API = 'http://192.168.43.248:5000/';
+export const NODE_API = 'http://35.222.28.132:4000/';
+export const FLASK_API = 'http://35.222.28.132:5000/';

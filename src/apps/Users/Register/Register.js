@@ -31,12 +31,21 @@ class Register extends Component{
                 firstname: this.props.firstName,
                 lastname: this.props.lastName,
                 email: this.props.email,
-                mobileNo: this.props.mobile
+                mobileNo: this.props.mobile,
+		password: "abcd"
             };
 
+
+            let headers  = {
+		"Content-Type": "application/json"
+	    };
+
+	    console.log(obj);
+
             if(this.props.person === "supervisor"){
-                axios.post(constants.NODE_API + "supervisor/register", obj).then(data => {
-                    this.props.onChangeHandler({requestFailed: false});
+                axios.post(constants.NODE_API + "supervisor/register", obj, {headers}).then(data => {
+                    console.log(data);
+		    this.props.onChangeHandler({requestFailed: false});
                     setTimeout(() => {
                         this.props.onChangeHandler({formSubmitted: false, requestFailed: undefined, email: "", firstName: "", lastName: "", person: "", photo: "", mobile: ""});
                     }, 2000);
@@ -46,11 +55,12 @@ class Register extends Component{
                 });
 
             }else if(this.props.person === "worker"){
-                axios.post(constants.NODE_API + "employee/register", obj).then((data) => {
-                    let form = new FormData();
+                axios.post(constants.NODE_API + "employee/register", obj, {headers}).then((data) => {
+                    console.log(data);
+		    let form = new FormData();
                     form.append("file", this.props.photo);
                     form.append("profileId", data["data"]["profileId"]);
-                    axios.post(constants.FLASK_API + "employee/register", form).then(data => {
+                    axios.post(constants.FLASK_API, form).then(data => {
                         console.log(data);
                         this.props.onChangeHandler({requestFailed: false});
                         setTimeout(() => {
